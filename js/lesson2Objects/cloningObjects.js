@@ -9,9 +9,23 @@ const circle = {
 };
 
 // old way of cloning
-// const another = {};
-// for (let key in circle) another[key] = circle[key];
-// console.log(another);
+const clone1 = {};
+for (let key in circle) clone1[key] = circle[key];
+
+console.log(clone1);
+
+// Newer way
+const clone2 = Object.assign({}, circle);
+// could also do add properties like this:
+// const clone2 = Object.assign({
+    // color: 'yellow'
+// }, circle);
+
+console.log(clone2);
 
 
-Object.assign({}, circle);
+// Newest and most elegant way:
+// This uses the spread operator which is 3 dots
+const clone3 = { ...circle };
+
+console.log(clone3);
